@@ -1,0 +1,100 @@
+@import "tailwindcss";
+/* 定义表格组件样式 */
+@layer components {
+    .table-container {
+        @apply overflow-hidden rounded-2xl shadow-lg;
+        border: 1px solid var(--color-border);
+    }
+
+    .table-title {
+        @apply text-2xl font-bold px-6 py-4 border-b;
+        background: linear-gradient(135deg, var(--color-header-bg) 0%, var(--color-bg) 100%);
+        border-color: var(--color-border);
+    }
+
+    .table-base {
+        @apply w-full min-w-max table-auto text-left;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .table-header-row {
+        background-color: var(--color-header-bg);
+    }
+
+    .table-header-cell {
+        @apply px-6 py-4 text-sm font-semibold uppercase tracking-wider;
+        color: var(--color-text);
+        border-bottom: 2px solid var(--color-border);
+        position: relative;
+    }
+
+    .table-header-cell::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+    }
+
+    .table-body {
+        background-color: var(--color-bg);
+        max-height: calc(100vh - 16rem);
+        overflow-y: auto;
+    }
+
+    .table-row {
+        @apply transition-all duration-200;
+        background-color: var(--color-bg);
+    }
+
+    .table-row:hover {
+        background-color: var(--color-hover-bg);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .table-cell {
+        @apply px-6 py-4 text-sm whitespace-nowrap;
+        color: var(--color-text);
+    }
+
+    /* Dark theme */
+    .dark .table-container {
+        border-color: var(--color-border-dark);
+    }
+
+    .dark .table-title {
+        color: var(--color-text-dark);
+        background: linear-gradient(135deg, var(--color-header-bg-dark) 0%, var(--color-bg-dark) 100%);
+        border-color: var(--color-border-dark);
+    }
+
+    .dark .table-header-row {
+        background-color: var(--color-header-bg-dark);
+    }
+
+    .dark .table-body {
+        background-color: var(--color-bg-dark);
+        max-height: calc(100vh - 16rem);
+        overflow-y: auto;
+    }
+
+    .dark .table-row {
+        background-color: var(--color-bg-dark);
+    }
+
+    .dark .table-row:hover {
+        background-color: var(--color-hover-bg-dark);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark .table-header-cell {
+        color: var(--color-text-dark);
+        border-color: var(--color-border-dark);
+    }
+
+    .dark .table-cell {
+        color: var(--color-text-dark);
+    }
+}
